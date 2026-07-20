@@ -1,0 +1,38 @@
+version: 2
+
+sources:
+  - name: support
+    description: Raw support data loaded from the ticketing system (synthetic Zendesk-style export)
+    tables:
+      - name: tickets
+      - name: csat_responses
+      - name: agents
+
+models:
+  - name: stg_tickets
+    description: Cleaned and typed ticket data with SLA flags
+    columns:
+      - name: ticket_id
+        tests: [unique, not_null]
+      - name: tier
+        tests:
+          - accepted_values:
+              values: ['free', 'pro', 'enterprise']
+      - name: region
+        tests:
+          - accepted_values:
+              values: ['AMER', 'EMEA', 'APAC']
+
+  - name: stg_csat_responses
+    columns:
+      - name: ticket_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_tickets')
+              field: ticket_id
+      - name: score
+        tests:
+          - accepted_values:
+              values: [1, 2, 3, 4, 5]
+              quote: false
