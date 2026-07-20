@@ -1,0 +1,13 @@
+name: support_ops_analytics
+version: '1.0.0'
+profile: support_ops_analytics
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+
+models:
+  support_ops_analytics:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table
