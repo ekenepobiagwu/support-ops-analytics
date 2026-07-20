@@ -1,0 +1,8 @@
+target/
+dbt_packages/
+logs/
+__pycache__/
+.DS_Store
+profiles.yml
+data/*.csv
+
