@@ -15,7 +15,7 @@ renamed as (
         agent_id,
         cast(first_response_hours as float64)   as first_response_hours,
         cast(sla_target_hours as float64)       as sla_target_hours,
-        cast(nullif(resolved_at, '') as timestamp) as resolved_at,
+        safe_cast(nullif(cast(resolved_at as string), '') as timestamp) as resolved_at,
         status,
         cast(reopened as int64) = 1             as was_reopened
     from source
