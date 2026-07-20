@@ -11,7 +11,11 @@ A fast-growing dev-tools company's support volume is scaling faster than its abi
 1. **Are we meeting SLA — and where are we not?** By region, tier, and priority, week over week.
 2. **Are we getting faster but less accurate?** First-response speed joined against reopen rate and CSAT on the same weekly grain.
 3. **What should Engineering fix next?** A multi-signal prioritization score that ranks issue categories by frequency, breadth, support cost, and sentiment — so the answer is defensible, not vibes.
+## Dashboard
 
+![Support Ops Dashboard](docs/dashboard.png)
+
+Live metrics from the pipeline: weekly SLA attainment with visible incident-window dips, and the multi-signal issue priority ranking
 ## Architecture
 
 ```
